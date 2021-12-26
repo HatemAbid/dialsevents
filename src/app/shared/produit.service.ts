@@ -19,11 +19,10 @@ const httpOptions = {
 
 @Injectable({ providedIn: 'root' })
 export class ProduitServicesService {
-  //private produitsUrl = 'http://196.234.199.124/test/produits.php';  // URL to web api
-  private produitsUrl =
-    'https://www.cartemenu.tn/dialsevents/www2/produits.php'; // URL to web api
+  // private produitsUrl = 'http://196.234.199.124/test/produits.php';  // URL to web api
+  private produitsUrl = 'https://www.cartemenu.tn/dialsevents/www2/produits.php'; // URL to web api
 
-  //private produitsUrl = 'https://jsonplaceholder.typicode.com/posts';  // URL to web api
+  // private produitsUrl = 'https://jsonplaceholder.typicode.com/posts';  // URL to web api
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

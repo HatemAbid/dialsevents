@@ -22,38 +22,38 @@ export class ProduitCreateComponent implements OnInit {public produitForm: FormG
     });
   }
 
-  public hasError = (controlName: string, errorName: string) =>{
+  public hasError = (controlName: string, errorName: string) => {
     return this.produitForm.controls[controlName].hasError(errorName);
   }
- 
+
   public onCancel = () => {
     this.location.back();
   }
- 
+
   public createProduit = (produitFormValue) => {
     if (this.produitForm.valid) {
       this.executeOwnerCreation(produitFormValue);
     }
   }
- 
+
   private executeOwnerCreation = (produitFormValue) => {
-    let produit: Produit = {
+    const produit: Produit = {
       name: produitFormValue.name,
-      //dateOfBirth: ownerFormValue.dateOfBirth,
-      //description: ownerFormValue.address
-    }
- 
-    let apiUrl = '/www2/produits.php';
+      // dateOfBirth: ownerFormValue.dateOfBirth,
+      // description: ownerFormValue.address
+    };
+
+    const apiUrl = '/www2/produits.php';
     this.repoService.create(apiUrl, produit)
       .subscribe(res => {
-        //this is temporary, until we create our dialogs
+        // this is temporary, until we create our dialogs
         this.location.back();
       },
       (error => {
-        //temporary as well
+        // temporary as well
         this.location.back();
       })
-    )
+    );
   }
 
 }

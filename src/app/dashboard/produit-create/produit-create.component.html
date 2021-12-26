@@ -11,7 +11,7 @@ produit-create works!
     <mat-error *ngIf="hasError('name', 'required')">Name is required</mat-error>
     <mat-error *ngIf="hasError('name', 'maxlength')">You have more than 60 characters</mat-error>
   </mat-form-field>
-  
+
   <mat-form-field>
     <input matInput type="text" placeholder="Produit address" formControlName="address">
     <mat-hint align="end">Not more then 100 characters long.</mat-hint>
