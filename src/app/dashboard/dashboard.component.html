@@ -1,0 +1,79 @@
+<p>
+  dashboard works!
+
+</p>
+<h1>Hi {{currentUser.firstname}}!</h1>
+
+<li>
+    <a routerLink="produit">Owner Actions</a>
+</li>
+<div>
+  <label>Produit name:
+    <input #produitName />
+	<!-- <input [(ngModel)]="produit.name"/> -->
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(produitName.value); produitName.value=''">
+    add
+  </button>
+  <button (click)="this.editProduit.name = produitName.value ; save(this.editProduit); produitName.value=''">
+    save
+  </button>
+  
+  
+</div>
+
+<div class="mat-elevation-z8">
+  <div fxLayout fxLayoutAlign="center center">
+    <mat-form-field fxFlex="40%">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+</div>
+  <table mat-table [dataSource]="dataSource" matSort>
+
+     <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="update">
+      <th mat-header-cell *matHeaderCellDef> Update </th>
+      <td mat-cell *matCellDef="let element"> 
+         <button mat-icon-button color="accent" (click)="produitName.value=element.name; modifier(element);">
+          <mat-icon class="mat-18">system_update</mat-icon>
+         </button></td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef> Delete </th>
+      <td mat-cell *matCellDef="let element"> 
+         <button mat-icon-button color="warn"  (click)="delete(element)">
+          <mat-icon class="mat-18">reorder</mat-icon>
+         </button> </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+   <mat-paginator [pageSizeOptions]="[5, 10, 100]" showFirstLastButtons></mat-paginator>
+</div>
+
+<!--
+  <ul *ngFor="let produit of produits" >
+      <li> - {{produit.name}} - <button class="delete" title="delete"
+      (click)="delete(produit)">delete</button>
+	  <button class="modifier" title="modifier"
+      (click)="produitName.value=produit.name; modifier(produit); ">modifier</button></li>
+  </ul>
+!-->
