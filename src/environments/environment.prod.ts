@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  urlAddress: 'https://www.cartemenu.mobi'
+  urlAddress: 'https://www.cartemenu.tn/dialsevents'
 };

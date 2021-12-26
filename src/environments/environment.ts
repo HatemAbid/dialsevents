@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  urlAddress: 'https://www.cartemenu.mobi'
+  urlAddress: 'https://www.cartemenu.tn/dialsevents'
 };
 
 /*
